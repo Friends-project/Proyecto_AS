@@ -1,7 +1,7 @@
 # Proyecto_AS
 
 SGE es un sistema de gestion escolar
-Desarrollado con el lenguaje de programacion c#
+Desarrollado con el lenguaje de programacion C#
 Utilizando la arquitectura MVC, web API y .NET Framework
 
 
