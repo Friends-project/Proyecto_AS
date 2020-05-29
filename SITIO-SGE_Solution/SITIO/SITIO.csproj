@@ -138,11 +138,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CarreraController.cs" />
+    <Compile Include="Controllers\EstudianteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Entidades\Carrera.cs" />
     <Compile Include="Entidades\CentroEducativo.cs" />
     <Compile Include="Entidades\Cordinador.cs" />
+    <Compile Include="Entidades\Estudiante.cs" />
     <Compile Include="Entidades\GrupoUsuario.cs" />
     <Compile Include="Entidades\Privilegio.cs" />
     <Compile Include="Entidades\Usuario.cs" />
@@ -203,6 +205,7 @@
     <Content Include="Views\Usuario\Inicio.cshtml" />
     <Content Include="Views\Usuario\Agregar.cshtml" />
     <Content Include="Views\Usuario\Modificar.cshtml" />
+    <Content Include="Views\Estudiante\Inicio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -214,11 +214,13 @@
     <Compile Include="Controllers\CarreraController.cs" />
     <Compile Include="Controllers\CentroEducativoController.cs" />
     <Compile Include="Controllers\CordinadorController.cs" />
+    <Compile Include="Controllers\EstudianteController.cs" />
     <Compile Include="Controllers\GrupoUsuarioController.cs" />
     <Compile Include="Controllers\PrivilegioController.cs" />
     <Compile Include="Entidades\Carrera.cs" />
     <Compile Include="Entidades\CentroEducativo.cs" />
     <Compile Include="Entidades\Cordinador.cs" />
+    <Compile Include="Entidades\Estudiante.cs" />
     <Compile Include="Entidades\GrupoUsuario.cs" />
     <Compile Include="Entidades\Privilegio.cs" />
     <Compile Include="Entidades\Usuario.cs" />
@@ -230,12 +232,14 @@
     <Compile Include="Logic\CarreraLogic.cs" />
     <Compile Include="Logic\CentroEducativoLogic.cs" />
     <Compile Include="Logic\CordinadorLogic.cs" />
+    <Compile Include="Logic\EstudianteLogic.cs" />
     <Compile Include="Logic\GrupoUsuarioLogic.cs" />
     <Compile Include="Logic\PrivilegioLogic.cs" />
     <Compile Include="Logic\UsuarioLogic.cs" />
     <Compile Include="Models\CarreraDB.cs" />
     <Compile Include="Models\CentroEducativoDB.cs" />
     <Compile Include="Models\CordinadorDB.cs" />
+    <Compile Include="Models\EstudianteDB.cs" />
     <Compile Include="Models\GrupoUsuarioDB.cs" />
     <Compile Include="Models\PrivilegioDB.cs" />
     <Compile Include="Models\UsuarioDB.cs" />
@@ -297,6 +301,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Estudiante\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
