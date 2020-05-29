@@ -1,0 +1,60 @@
+﻿@model SITIO.Entidades.Carrera
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar carrera</h2>
+
+<div>
+
+	<hr />
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.CodigoCarrera)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.CodigoCarrera)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.NombreCentro)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.NombreCentro)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.NombreCordinador)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.NombreCordinador)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.NombreCarrera)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.NombreCarrera)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Duracion)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Duracion)
+		</dd>
+
+	</dl>
+
+	<input value="Eliminar" href="@Url.Action("Eliminar", "Carrera")" class="btn btn-default" title="Eliminar" alt="Eliminar" src="~/Images/delete-file.ico" type="image" height="60px" align="middle" />
+</div>
+<p>
+	<a title="Regresar" href="@Url.Action("Inicio", "Carrera")"><img src="~/Images/go-back.ico" alt="Regresar" style="vertical-align: middle;" height="60px" /></a>      
+</p>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="SGE-API" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\usu\\source\\repos\\API-SGE_Solution\\API\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\usu\\source\\repos\\API-SGE_Solution\\API\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+</parameters>

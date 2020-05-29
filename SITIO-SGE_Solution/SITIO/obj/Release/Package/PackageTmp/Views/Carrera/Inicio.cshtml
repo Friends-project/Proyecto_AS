@@ -1,0 +1,107 @@
+﻿@model IEnumerable<SITIO.Entidades.Carrera>
+
+@{
+	ViewBag.Title = "Carrera";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts
+    {
+
+	<script type="text/javascript">
+
+		function ConfirmEliminar(id) {
+
+			var opcion = confirm("¿Desea eliminar el registro?");
+			if (opcion == true) {
+				location.href = '@Url.Action("Delete", "Carrera")?id=' + id;
+				mensaje = "Registro eliminado";
+			} else {
+				mensaje = "No se ha eliminado el registro";
+			}
+			alert(mensaje);
+		}
+
+
+
+	</script>
+}
+
+
+<style type="text/css">
+
+	a {
+		cursor: pointer
+	}
+
+	table {
+		text-align: center;
+	}
+
+	td {
+		text-align: center;
+	}
+
+	th {
+		text-align: center;
+	}
+</style>
+
+
+
+<div class="jumbotron">
+	<h3><b>Carrera</b></h3>
+</div>
+<hr />
+<div class="col-sm-2 col-md-2 col-xl-2 pull-left">
+	<a title="Agregar nuevo" href="@Url.Action("Agregar", "Carrera")"><img src="~/Images/new-file.ico" alt="Agregar nuevo" style="vertical-align: middle;" height="50px" /></a>
+</div>
+<div class="col-sm-2 col-md-2 col-xl-2 pull-right">
+	<a title="Exportar" href="@Url.Action("ExporttoExcel", "Carrera")"><img src="~/Images/export.ico" alt="Agregar nuevo" style="vertical-align: middle;" height="50px" /></a>
+</div>
+<table style="border: 1px solid gray" class="table">
+	<tr>
+		<th style="border: 1px solid gray">
+			@Html.DisplayNameFor(model => model.CodigoCarrera)
+		</th>
+		<th style="border: 1px solid gray ">
+			@Html.DisplayNameFor(model => model.CentroE)
+		</th>
+		<th style="border: 1px solid gray ">
+			@Html.DisplayNameFor(model => model.Cordinador)
+		</th>
+		<th style="border: 1px solid gray ">
+			@Html.DisplayNameFor(model => model.NombreCarrera)
+		</th>
+		<th style="border: 1px solid gray; border-right: 1px solid gray ">
+			@Html.DisplayNameFor(model => model.Duracion)
+		</th>
+		<th style="border: 1px none; border-right: 1px hidden #dfdfdf; border-top: 1px hidden #dfdfdf; border-bottom: 1px solid #dfdfdf "></th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td style="	border: 1px solid #dfdfdf">
+				@Html.DisplayFor(modelItem => item.CodigoCarrera)
+			</td>
+			<td style="	border: 1px solid #dfdfdf">
+				@Html.DisplayFor(modelItem => item.CentroE.NombreCentro)
+			</td>
+			<td style=" border: 1px solid #dfdfdf ">
+				@Html.DisplayFor(modelItem => item.Cordinador.NombreCordinador)
+			</td>
+			<td style="	border: 1px solid #dfdfdf">
+				@Html.DisplayFor(modelItem => item.NombreCarrera)
+			</td>
+			<td style="border-right: 1px solid #dfdfdf; border: 1px solid #dfdfdf">
+				@Html.DisplayFor(modelItem => item.Duracion)
+			</td>
+			<td style="border: 1px none; border-right: 1px solid #dfdfdf; border-bottom: 1px solid #dfdfdf ">
+				<a title="Modificar" id="btnModificar" href="@Url.Action("Modificar", "Carrera", new { id = item.CodigoCarrera })"><img src="~/Images/documentediting.ico" alt="Modificar" style="vertical-align: middle;" height="25px" /></a>
+				<a title="Eliminar" onclick="ConfirmEliminar(@item.CodigoCarrera)" id="btnEliminar"><img src="~/Images/delete-file.ico" alt="Eliminar" style="vertical-align: middle;" height="25px" /></a>
+			</td>
+		</tr>
+	}
+
+</table>

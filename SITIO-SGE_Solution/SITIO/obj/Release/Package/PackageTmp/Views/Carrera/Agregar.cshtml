@@ -1,0 +1,69 @@
+﻿@model SITIO.Entidades.Carrera
+
+@{
+    ViewBag.Title = "Agregar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="jumbotron">
+	<h3><b>Agregar carrera</b></h3>
+</div>
+
+<div>
+	<a title="Regresar" href="@Url.Action("Inicio", "Carrera")"><img src="~/Images/go-back.ico" alt="Regresar" style="vertical-align: middle;" height="50px" /></a>
+</div>
+
+
+@using (Html.BeginForm("Agregar","Carrera", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CentroE, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.DropDownListFor(model => model.CentroE.IdCentro, (SelectList)ViewBag.CentrosE, "-- Seleccione un Centro Educativo --", new { @id = "iddropdownlist", @class = "form-control" })
+				@Html.ValidationMessageFor(model => model.CentroE, "", new { @class = "text-danger" })
+			</div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cordinador, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.DropDownListFor(model => model.Cordinador.IdCordinador, (SelectList)ViewBag.Cordinadores, "-- Seleccione un Coordinador --", new { @id = "iddropdownlist", @class = "form-control" })
+				@Html.ValidationMessageFor(model => model.Cordinador, "", new { @class = "text-danger" })
+			</div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NombreCarrera, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NombreCarrera, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NombreCarrera, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Duracion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Duracion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Duracion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input value="Guardar" class="btn btn-default" title="Guardar" alt="Guardar" src="~/Images/savedisk.ico" type="image" height="60px" align="middle"/>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
