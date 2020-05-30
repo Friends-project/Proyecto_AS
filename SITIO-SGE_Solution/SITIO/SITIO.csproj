@@ -203,9 +203,11 @@
     <Content Include="Views\Carrera\Modificar.cshtml" />
     <Content Include="Views\Carrera\Eliminar.cshtml" />
     <Content Include="Views\Usuario\Inicio.cshtml" />
-    <Content Include="Views\Usuario\Agregar.cshtml" />
     <Content Include="Views\Usuario\Modificar.cshtml" />
     <Content Include="Views\Estudiante\Inicio.cshtml" />
+    <Content Include="Views\Usuario\Agregar.cshtml" />
+    <Content Include="Views\Estudiante\Agregar.cshtml" />
+    <Content Include="Views\Estudiante\Modificar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

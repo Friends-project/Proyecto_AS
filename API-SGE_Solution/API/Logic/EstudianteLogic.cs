@@ -87,7 +87,7 @@ namespace API.Logic
             message = null;
             db = new EstudianteDB();
 
-            sentencia = "Call ModificarEstudiante(" + estudiante.IdEstudiante.ToString() + estudiante.Usuario.IdUsuario.ToString() + "," + estudiante.Carrera.CodigoCarrera.ToString() + "," + "'" +
+            sentencia = "Call ModificarEstudiante(" + estudiante.IdEstudiante.ToString() + "," + estudiante.Usuario.IdUsuario.ToString() + "," + estudiante.Carrera.CodigoCarrera.ToString() + "," + "'" +
             estudiante.NombreEstudiante + "'" + "," + estudiante.DPI.ToString() + "," + "'" + estudiante.FechaIngreso + "'" + "," + "'" +
             estudiante.Telefono + "'" + "," + "'" + estudiante.Direccion + "'" + "," + estudiante.Edad + ");";
 

@@ -18,24 +18,27 @@ namespace SITIO.Controllers
     public class EstudianteController : Controller
     {
         [HttpGet]
-        public async Task<ActionResult> Inicio()
+        public async Task<ActionResult> Inicio(string mensaje)
         {
             //   FORMA 1
             //https://localhost:44354/api/Usuario/GetUsuarios
             var httpClient = new HttpClient();
-            List<Estudiante> usuarioList = null;
+            List<Estudiante> estudianteList = null;
 
             var json = await httpClient.GetStringAsync(ConfigurationManager.AppSettings["dirAPI"] + "api/Estudiante/GetEstudiantes");
 
             if (json.ToString().Contains("{"))
             {
-                usuarioList = JsonConvert.DeserializeObject<List<Estudiante>>(json);
+                ViewBag.Message = mensaje;
+                estudianteList = JsonConvert.DeserializeObject<List<Estudiante>>(json);
 
-                return View(usuarioList);
+                return View(estudianteList);
             }
             else
             {
-                return View(usuarioList);
+                ViewBag.Message = mensaje;
+                return View(estudianteList);
+                
             }
 
 
@@ -48,9 +51,9 @@ namespace SITIO.Controllers
             var httpClient = new HttpClient();
             var json = await httpClient.GetStringAsync(ConfigurationManager.AppSettings["dirAPI"] + "api/Estudiante/GetEstudiante?id=" + id);
 
-            var usuario = JsonConvert.DeserializeObject<List<Estudiante>>(json).First();
+            var estudiante = JsonConvert.DeserializeObject<List<Estudiante>>(json).First();
 
-            return View(usuario);
+            return View(estudiante);
         }
 
         // GET: Carrera/Details/5
@@ -59,9 +62,9 @@ namespace SITIO.Controllers
             var httpClient = new HttpClient();
             var json = await httpClient.GetStringAsync(ConfigurationManager.AppSettings["dirAPI"] + "api/Estudiante/GetEstudiante?id=" + id);
 
-            var usuario = JsonConvert.DeserializeObject<Estudiante>(json);
+            var estudiante = JsonConvert.DeserializeObject<Estudiante>(json);
 
-            return View(usuario);
+            return View(estudiante);
         }
 
         // GET: Carrera/Create
@@ -95,20 +98,22 @@ namespace SITIO.Controllers
 
         // POST: Carrera/Create
         [HttpPost]
-        public async Task<ActionResult> Agregar(Estudiante usuario)
+        public async Task<ActionResult> Agregar(Estudiante estudiante)
         {
-
 
 
             var httpClient = new HttpClient();
             //var json =  await httpClient.PostAsync("https://localhost:44354/", carrera, new JsonMediaTypeFormatter());
-            var content = new StringContent(JsonConvert.SerializeObject(usuario), Encoding.UTF8, "application/json");
+            var content = new StringContent(JsonConvert.SerializeObject(estudiante), Encoding.UTF8, "application/json");
 
             var response = httpClient.PostAsync(ConfigurationManager.AppSettings["dirAPI"] + "api/Estudiante/AgregarEstudiante", content).Result;
 
             ViewBag.Message = response.Content.ReadAsStringAsync().Result;
 
-            return RedirectToAction("Inicio");
+
+
+            return Redirect(Url.Action("Inicio", "Estudiante", new { mensaje = ViewBag.Message }));
+
         }
 
         // GET: Carrera/Edit/5
@@ -148,17 +153,17 @@ namespace SITIO.Controllers
 
         // POST: Carrera/Edit/5
         [HttpPost]
-        public async Task<ActionResult> Modificar(int id, Estudiante usuario)
+        public async Task<ActionResult> Modificar(int id, Estudiante estudiante)
         {
             var httpClient = new HttpClient();
             //var json =  await httpClient.PostAsync("https://localhost:44354/", carrera, new JsonMediaTypeFormatter());
-            var content = new StringContent(JsonConvert.SerializeObject(usuario), Encoding.UTF8, "application/json");
+            var content = new StringContent(JsonConvert.SerializeObject(estudiante), Encoding.UTF8, "application/json");
 
             var response = httpClient.PutAsync(ConfigurationManager.AppSettings["dirAPI"] + "api/Estudiante/ModificarEstudiante?id=" + id, content).Result;
 
             ViewBag.Message = response.Content.ReadAsStringAsync().Result;
 
-            return RedirectToAction("Inicio");
+            return Redirect(Url.Action("Inicio", "Estudiante", new { mensaje = ViewBag.Message }));
         }
 
         // GET: Carrera/Delete/5
@@ -167,9 +172,9 @@ namespace SITIO.Controllers
             var httpClient = new HttpClient();
             var json = await httpClient.GetStringAsync(ConfigurationManager.AppSettings["dirAPI"] + "api/Estudiante/GetEstudiante?id=" + id);
 
-            var usuario = JsonConvert.DeserializeObject<List<Usuario>>(json).First();
+            var estudiante = JsonConvert.DeserializeObject<List<Usuario>>(json).First();
 
-            return View(usuario);
+            return View(estudiante);
         }
 
         // POST: Carrera/Delete/5
@@ -182,7 +187,7 @@ namespace SITIO.Controllers
 
             ViewBag.Message = response.Content.ReadAsStringAsync().Result;
 
-            return RedirectToAction("Inicio");
+            return Redirect(Url.Action("Inicio", "Estudiante", new { mensaje = ViewBag.Message }));
         }
 
 

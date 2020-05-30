@@ -44,7 +44,7 @@ namespace SITIO.Entidades
             Carrera = new Carrera();
             NombreEstudiante = String.Empty;
             DPI = 0;
-            FechaIngreso = String.Empty;
+            FechaIngreso = DateTime.Now.ToString("yyyy/MM/dd");
             Telefono = String.Empty;
             Direccion = String.Empty;
             Edad = 0;

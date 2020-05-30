@@ -12,6 +12,20 @@
 }
 
 
+@section scripts
+    {
+
+	<script type="text/javascript">
+
+
+
+		//setTimeout(function () {
+		//	document.getElementById("Mensaje").style.display = "none";
+		//}, 10000);
+
+
+	</script>
+}
 
 
 <div class="jumbotron">
@@ -26,57 +40,57 @@
 {
 	@Html.AntiForgeryToken()
 
-<div class="form-horizontal">
+	<div class="form-horizontal">
 
-	<hr />
-	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
-	<div class="form-group">
-		@Html.LabelFor(model => model.IdUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
-		<div class="col-md-10">
-			@Html.EditorFor(model => model.IdUsuario, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-			@Html.ValidationMessageFor(model => model.IdUsuario, "", new { @class = "text-danger" })
+		<hr />
+		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+		<div class="form-group">
+			@Html.LabelFor(model => model.IdUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.IdUsuario, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+				@Html.ValidationMessageFor(model => model.IdUsuario, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Grupo, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.DropDownListFor(model => model.Grupo.IdGrupo, (SelectList)ViewBag.Grupos, "-- Seleccione un Grupo --", new { @id = "iddropdownlist", @class = "form-control" })
+				@Html.ValidationMessageFor(model => model.Grupo, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Privilegio, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.DropDownListFor(model => model.Privilegio.IdPrivilegio, (SelectList)ViewBag.Privilegios, "-- Seleccione un Centro Privilegio --", new { @id = "iddropdownlist", @class = "form-control" })
+				@Html.ValidationMessageFor(model => model.Privilegio, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.UsuarioEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.UsuarioEmail, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.UsuarioEmail, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Contrasena, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.Contrasena, new { htmlAttributes = new { @class = "form-control", @name = "Password", Type = "password", Value = "" } })
+				@*@Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password", Type = "password" } })*@
+				@Html.ValidationMessageFor(model => model.Contrasena, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<input value="Modificar" class="btn btn-default" title="Modificar" alt="Modificar" src="~/Images/documentediting.ico" type="image" height="60px" align="middle" />
+			</div>
 		</div>
 	</div>
-
-	<div class="form-group">
-		@Html.LabelFor(model => model.Grupo, htmlAttributes: new { @class = "control-label col-md-2" })
-		<div class="col-md-10">
-			@Html.DropDownListFor(model => model.Grupo.IdGrupo, (SelectList)ViewBag.Grupos, "-- Seleccione un Grupo --", new { @id = "iddropdownlist", @class = "form-control" })
-			@Html.ValidationMessageFor(model => model.Grupo, "", new { @class = "text-danger" })
-		</div>
-	</div>
-
-	<div class="form-group">
-		@Html.LabelFor(model => model.Privilegio, htmlAttributes: new { @class = "control-label col-md-2" })
-		<div class="col-md-10">
-			@Html.DropDownListFor(model => model.Privilegio.IdPrivilegio, (SelectList)ViewBag.Privilegios, "-- Seleccione un Centro Privilegio --", new { @id = "iddropdownlist", @class = "form-control" })
-			@Html.ValidationMessageFor(model => model.Privilegio, "", new { @class = "text-danger" })
-		</div>
-	</div>
-
-	<div class="form-group">
-		@Html.LabelFor(model => model.UsuarioEmail, htmlAttributes: new { @class = "control-label col-md-2" })
-		<div class="col-md-10">
-			@Html.EditorFor(model => model.UsuarioEmail, new { htmlAttributes = new { @class = "form-control" } })
-			@Html.ValidationMessageFor(model => model.UsuarioEmail, "", new { @class = "text-danger" })
-		</div>
-	</div>
-
-	<div class="form-group">
-		@Html.LabelFor(model => model.Contrasena, htmlAttributes: new { @class = "control-label col-md-2" })
-		<div class="col-md-10">
-			@Html.EditorFor(model => model.Contrasena, new { htmlAttributes = new { @class = "form-control", @name = "Password", Type = "password", Value = "" } })
-			@*@Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password", Type = "password" } })*@
-			@Html.ValidationMessageFor(model => model.Contrasena, "", new { @class = "text-danger" })
-		</div>
-	</div>
-
-	<div class="form-group">
-		<div class="col-md-offset-2 col-md-10">
-			<input value="Modificar" class="btn btn-default" title="Modificar" alt="Modificar" src="~/Images/documentediting.ico" type="image" height="60px" align="middle" />
-		</div>
-	</div>
-</div>
 }
 
 

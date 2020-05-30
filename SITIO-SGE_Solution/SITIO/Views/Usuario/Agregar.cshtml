@@ -36,7 +36,7 @@
 		<div class="form-group">
 			@Html.LabelFor(model => model.Privilegio, htmlAttributes: new { @class = "control-label col-md-2" })
 			<div class="col-md-10">
-				@Html.DropDownListFor(model => model.Privilegio.IdPrivilegio, (SelectList)ViewBag.Privilegios, "-- Seleccione un Centro Privilegio --", new { @id = "iddropdownlist", @class = "form-control" })
+				@Html.DropDownListFor(model => model.Privilegio.IdPrivilegio, (SelectList)ViewBag.Privilegios, "-- Seleccione un Privilegio --", new { @id = "iddropdownlist", @class = "form-control" })
 				@Html.ValidationMessageFor(model => model.Privilegio, "", new { @class = "text-danger" })
 			</div>
 		</div>

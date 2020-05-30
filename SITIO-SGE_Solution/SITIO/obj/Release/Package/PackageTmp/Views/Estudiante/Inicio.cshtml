@@ -22,10 +22,28 @@
 			alert(mensaje);
 		}
 
-
-
 	</script>
+
+
+
+	@if (ViewBag.Message != null)
+	{
+
+
+		<script type="text/javascript">
+
+			$(document).ready(function() {
+
+				alert(@ViewBag.Message);
+
+			});
+		</script>
+
+	}
+
 }
+
+
 
 
 <style type="text/css">
@@ -98,39 +116,39 @@
 	{
 		foreach (var item in Model)
 		{
-<tr>
-	<td style="	border: 1px solid #dfdfdf">
-		@Html.DisplayFor(modelItem => item.IdEstudiante)
-	</td>
-	<td style="	border: 1px solid #dfdfdf">
-		@Html.DisplayFor(modelItem => item.Usuario.UsuarioEmail)
-	</td>
-	<td style=" border: 1px solid #dfdfdf ">
-		@Html.DisplayFor(modelItem => item.Carrera.NombreCarrera)
-	</td>
-	<td style="	border: 1px solid #dfdfdf">
-		@Html.DisplayFor(modelItem => item.NombreEstudiante)
-	</td>
-	<td style="border-right: 1px solid #dfdfdf; border: 1px solid #dfdfdf">
-		@Html.DisplayFor(modelItem => item.DPI)
-	</td>
-	<td style="border-right: 1px solid #dfdfdf; border: 1px solid #dfdfdf">
-		@Html.DisplayFor(modelItem => item.FechaIngreso)
-	</td>
-	<td style="	border: 1px solid #dfdfdf">
-		@Html.DisplayFor(modelItem => item.Telefono)
-	</td>
-	<td style="border-right: 1px solid #dfdfdf; border: 1px solid #dfdfdf">
-		@Html.DisplayFor(modelItem => item.Direccion)
-	</td>
-	<td style="border-right: 1px solid #dfdfdf; border: 1px solid #dfdfdf">
-		@Html.DisplayFor(modelItem => item.Edad)
-	</td>
-	<td style="border: 1px none; border-right: 1px solid #dfdfdf; border-bottom: 1px solid #dfdfdf ">
-		<a title="Modificar" id="btnModificar" href="@Url.Action("Modificar", "Estudiante", new { id = item.IdEstudiante })"><img src="~/Images/documentediting.ico" alt="Modificar" style="vertical-align: middle;" height="25px" /></a>
-		<a title="Eliminar" onclick="ConfirmEliminar(@item.IdEstudiante)" id="btnEliminar"><img src="~/Images/delete-file.ico" alt="Eliminar" style="vertical-align: middle;" height="25px" /></a>
-	</td>
-</tr>
+			<tr>
+				<td style="	border: 1px solid #dfdfdf">
+					@Html.DisplayFor(modelItem => item.IdEstudiante)
+				</td>
+				<td style="	border: 1px solid #dfdfdf">
+					@Html.DisplayFor(modelItem => item.Usuario.UsuarioEmail)
+				</td>
+				<td style=" border: 1px solid #dfdfdf ">
+					@Html.DisplayFor(modelItem => item.Carrera.NombreCarrera)
+				</td>
+				<td style="	border: 1px solid #dfdfdf">
+					@Html.DisplayFor(modelItem => item.NombreEstudiante)
+				</td>
+				<td style="border-right: 1px solid #dfdfdf; border: 1px solid #dfdfdf">
+					@Html.DisplayFor(modelItem => item.DPI)
+				</td>
+				<td style="border-right: 1px solid #dfdfdf; border: 1px solid #dfdfdf">
+					@Html.DisplayFor(modelItem => item.FechaIngreso)
+				</td>
+				<td style="	border: 1px solid #dfdfdf">
+					@Html.DisplayFor(modelItem => item.Telefono)
+				</td>
+				<td style="border-right: 1px solid #dfdfdf; border: 1px solid #dfdfdf">
+					@Html.DisplayFor(modelItem => item.Direccion)
+				</td>
+				<td style="border-right: 1px solid #dfdfdf; border: 1px solid #dfdfdf">
+					@Html.DisplayFor(modelItem => item.Edad)
+				</td>
+				<td style="border: 1px none; border-right: 1px solid #dfdfdf; border-bottom: 1px solid #dfdfdf ">
+					<a title="Modificar" id="btnModificar" href="@Url.Action("Modificar", "Estudiante", new { id = item.IdEstudiante })"><img src="~/Images/documentediting.ico" alt="Modificar" style="vertical-align: middle;" height="25px" /></a>
+					<a title="Eliminar" onclick="ConfirmEliminar(@item.IdEstudiante)" id="btnEliminar"><img src="~/Images/delete-file.ico" alt="Eliminar" style="vertical-align: middle;" height="25px" /></a>
+				</td>
+			</tr>
 		}
 	}
 
