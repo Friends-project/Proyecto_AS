@@ -1,10 +1,10 @@
 # Proyecto_AS
 
-SGE es un sistema de gestion escolar
-desarrollado con el lenguaje de programacion C#
+SGE es un sistema de gestión escolar
+desarrollado con el lenguaje de programación C#
 Utilizando la arquitectura MVC, web API y .NET Framework
 
-Proyecto de Analisis de Sistemas 7mo Semestre
+Proyecto de Análisis de Sistemas 7mo Semestre
 
 
 Links
@@ -12,3 +12,4 @@ Links
 Sitio Web (publicado en Azure): https://sge-sitio.azurewebsites.net 
 
 Web API (publicado en Azure): https://sge-api.azurewebsites.net
+(Documentación de consumo de API)
