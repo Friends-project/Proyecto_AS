@@ -9,6 +9,6 @@ Proyecto de Analisis de Sistemas 7mo Semestre
 
 Links
 
-Sitio Web: https://sge-sitio.azurewebsites.net 
+Sitio Web (publicado en Azure): https://sge-sitio.azurewebsites.net 
 
-Web API (info): https://sge-api.azurewebsites.net
+Web API (publicado en Azure): https://sge-api.azurewebsites.net
